@@ -1,0 +1,202 @@
+
+/* DASHBOARD PAGE */
+.dashboard-wrap {
+    background-color: var(--white);
+    border-color: #dfdfdf;
+    padding: 20px 20px;
+
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    display: none;
+}
+
+.dashboard__heading {
+    font-size: 2.6rem;
+    text-align: center;
+    color: var(--text-color);
+    margin-bottom: 20px;
+
+}
+
+.dashboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+    position: relative;
+}
+
+.dashboard-item.separate {
+    position: relative;
+}
+
+.separate::before {
+    content: "";
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+}
+
+.dashboard__sub-heading {
+    font-size: 2rem;
+}
+
+.dashboard-item--income .dashboard__sub-heading,
+.dashboard-item--income  .dashboard__amount {
+    color: var(--primary);
+}
+
+.dashboard-item--expenses .dashboard__sub-heading,
+.dashboard-item--expenses  .dashboard__amount {
+    color: var(--second);
+}
+
+.dashboard__amount {
+    font-size: 2.2rem;
+}
+
+.dashboard-item--remaning .dashboard__amount {
+    font-size: 2.8rem;
+}
+
+.dashboard-chart {
+    min-height: 100px;
+    width: 100%;
+    background-color: #F6E7E0;
+    border-radius: 5px;
+    margin: 10px 0px 20px;
+    padding: 10px 15px;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-chart__heading {
+    font-size: 2rem;
+}
+
+.dashboard-chart-body {
+    flex: 1;
+    display: flex;
+}
+
+.dashboard-chart__circle {
+    --height: 200px;
+    width: var(--height);
+    height: var(--height);
+    border-radius: 100%;
+    background-color: yellow;
+    margin: auto;
+}
+
+.dashboard-control {
+    display: flex;
+    margin-top: auto;
+}
+
+.dashboard-control__btn {
+    flex: 1;
+    margin: 0 10px;
+    padding: 10px 0px;
+
+    font-size: 1.8rem;
+    color: var(--white);
+    text-align: center;
+
+    border-radius: 5px;
+    border: 1px solid;
+    cursor: pointer;
+    display: block;
+}
+
+.dashboard-control__btn--income {
+    background-color: var(--primary);
+    border-color: var(--primary-border);
+}
+
+
+.dashboard-control__btn--expenses {
+    background-color: var(--second);
+    border-color: var(--second-border);
+}
+
+.dashboard-control__btn:hover {
+    opacity: 0.8;
+}
+
+/* Income */
+.income-checkbox:checked ~ .income {
+    display: block;
+}
+
+.expenses-checkbox:checked ~ .expenses {
+    display: block;
+}
+
+.sub-dashboard {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+.sub-dashboard.income,
+.sub-dashboard.expenses {
+    display: none;
+}
+
+.sub-dashboard__overlay {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.3);
+    animation: fadeIn linear 250ms;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.sub-dashboard-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 300px;
+
+    background-color: var(--white);
+    border: 1px solid #dfdfdf;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 15px 15px;
+
+    transform: translateY(0%);
+    animation: slide linear 250ms;
+
+}
+
+.sub-dashboard__text {
+    font-size: 1.8rem;
+}
+
+@keyframes slide {
+    from {
+        transform: translateY(100%);
+    } to {
+        transform: translateY(0%);
+    }
+}

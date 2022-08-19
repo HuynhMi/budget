@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Budget App</title>
+
+        <!-- stylsheet -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="./assets/css/basic.css">
+        <link rel="stylesheet" href="./assets/css/welcome-page.css">
+        <link rel="stylesheet" href="./assets/css/dashboard-page.css">
+    </head>
+    <body>
+        <div class="app app--dashboard">
+            <div class="page welcome-wrap">
+                <div class="welcome">
+                    <div class="welcome__image">
+                        <img src="./assets/images/home.png" alt="" class="welcome__image">
+                    </div>
+                    <h1 class="welcome__heading">Budget App</h1>
+                    <p class="welcome__desc">
+                        Today is your opportunity to build the tomorrow you want.
+                    </p>
+                    <button class="welcome-btn">
+                        Enter 
+                        <img src="./assets/images/enter__icon.png" alt="" class="welcome-btn__image">
+                    </button>
+                </div>
+            </div>
+            <div class="page dashboard-wrap">
+                <h2 class="dashboard__heading">
+                    Dashboard
+                </h2>
+                <div class="dashboard-item dashboard-item--income">
+                    <p class="dashboard__sub-heading">Income</p>
+                    <span class="dashboard__amount">$234.444</span>
+                </div>
+                <div class="dashboard-item dashboard-item--expenses">
+                    <p class="dashboard__sub-heading">Expenses</p>
+                    <span class="dashboard__amount">$234.444</span>
+                </div>
+                <div class="dashboard-item dashboard-item--remaning separate">
+                    <h6 class="dashboard__sub-heading">Remaning</h6>
+                    <span class="dashboard__amount">$234.444</span>
+                </div>
+
+                <div class="dashboard-chart">
+                    <p class="dashboard-chart__heading">Statistics</p>
+                    <div class="dashboard-chart-body">
+                        <div class="dashboard-chart__circle"></div>
+                    </div>
+                </div>
+                <div class="dashboard-control">
+                    <label for="income" class="dashboard-control__btn dashboard-control__btn--income">
+                        Income detail
+                    </label>
+                    <label for="expenses" class="dashboard-control__btn dashboard-control__btn--expenses">
+                        Transactions
+                    </label>
+                </div>
+
+                <!-- Income detail -->
+                <input type="checkbox" name="" id="income" class="income-checkbox" hidden>
+                <div class="sub-dashboard income">
+                    <label class="sub-dashboard__overlay" for="income"></label>
+                    <div class="sub-dashboard-body">
+                        <p class="sub-dashboard__text">
+                            Income detail
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Expenses detail-->
+                <input type="checkbox" name="" id="expenses" class="expenses-checkbox" hidden>
+                <div class="sub-dashboard expenses">
+                    <label class="sub-dashboard__overlay" for="expenses"></label>
+                    <div class="sub-dashboard-body">
+                        <p class="sub-dashboard__text">
+                            Expenses detail
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html>
