@@ -2,6 +2,7 @@
     "data" :{
             "income": [
                 {
+                    "id": 1,
                     "name": "Salary",
                     "amount": 12.34,
                     "type": "fixed"
@@ -9,12 +10,14 @@
             ],
             "transaction" : [
                 {
+                    "id": 1,
                     "name": "Shopping",
                     "amount": 12.34,
                     "date": "20-08-2022",
                     "timer": "10:30 AM"
                 },
                 {
+                    "id": 2,
                     "name": "Play game",
                     "amount": 12.34,
                     "date": "20-08-2022",
