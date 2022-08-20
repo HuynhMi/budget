@@ -1,11 +1,25 @@
 {
-    "posts": [
-      {
-        "id": 1,
-        "title": "hello"
-      }
-    ],
-    "profile": {
-      "name": "typicode"
-    }
-  }
+    "data" :{
+            "income": [
+                {
+                    "name": "Salary",
+                    "amount": 12.34,
+                    "type": "fixed"
+                }
+            ],
+            "transaction" : [
+                {
+                    "name": "Shopping",
+                    "amount": 12.34,
+                    "date": "20-08-2022",
+                    "timer": "10:30 AM"
+                },
+                {
+                    "name": "Play game",
+                    "amount": 12.34,
+                    "date": "20-08-2022",
+                    "timer": "10:30 AM"
+                }
+            ]
+        }
+}
