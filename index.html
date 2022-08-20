@@ -66,9 +66,126 @@
                 <div class="sub-dashboard income">
                     <label class="sub-dashboard__overlay" for="income"></label>
                     <div class="sub-dashboard-body">
-                        <p class="sub-dashboard__text">
-                            Income detail
-                        </p>
+                        <div class="sub-dashboard-container">
+                            <label class="sub-dashboard-close-btn" for="income">
+                                <img src="./assets/images/close.png" alt="" class="sub-dashboard-close-btn__img">
+                            </label>
+                            <div class="sub-dashboard-header">
+                                <h6 class="sub-dashboard__heading">Income</h6>
+                                <label  for="income-checkbox" class="sub-dashboard__add-btn sub-dashboard__add-btn--active">
+                                    <img src="./assets/images/plus-sign.png" alt="" class="sub-dashboard__add-btn-img">
+                                </label>
+                            </div>
+                            <input type="checkbox" name="" id="income-checkbox" class="income-checkbox" hidden>
+                            <form class="sub-dashboard-form income-form income-form--add">
+                                <div class="sub-dashboard-form-group">
+                                    <input type="number" class="sub-dashboard-form__input sub-dashboard-form__input--shorter" placeholder="$2.4">
+                                    <input type="text" class="sub-dashboard-form__input" name="" id="" placeholder="Description">
+                                </div>
+                                <button type="submit" class="sub-dashboard-form__btn income-form__btn income-form__btn--add">Add</button>
+                                <button type="submit" class="sub-dashboard-form__btn income-form__btn income-form__btn--update">Update</button>
+                            </form>
+                            <div class="sub-dashboard-filter income-filter">
+                                <div class="sub-dashboard-filter-group">
+                                    <input type="radio" name="filter-income-type" id="" checked class="sub-dashboard-filter__checkbox">
+                                    <label for="" class="sub-dashboard-filter__label">All</label>
+                                </div>
+                                <div class="sub-dashboard-filter-group">
+                                    <input type="radio" name="filter-income-type" id="" class="sub-dashboard-filter__checkbox">
+                                    <label for="" class="sub-dashboard-filter__label">Fixed</label>
+                                </div>
+                                <div class="sub-dashboard-filter-group">
+                                    <input type="radio" name="filter-income-type" id="" class="sub-dashboard-filter__checkbox">
+                                    <label for="" class="sub-dashboard-filter__label">Variable</label>
+                                </div>
+                                <div class="sub-dashboard-filter-group">
+                                    <input type="radio" name="filter-income-type" id="" class="sub-dashboard-filter__checkbox">
+                                    <label for="" class="sub-dashboard-filter__label">Occasional</label>
+                                </div>
+                            </div>
+                            <ul class="income-list">
+                                <li class="income-item">
+                                    <span class="income-item__name">Salary</span>
+                                    <span class="income-item__number">$123.456</span>
+                                    <span class="income-item__btn income-item__btn--edit" title="edit">
+                                        <img src="./assets/images/edit.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                    <span class="income-item__btn income-item__btn--delete" title="delete">
+                                        <img src="./assets/images/delete.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                </li>
+                                <li class="income-item">
+                                    <span class="income-item__name">Salary</span>
+                                    <span class="income-item__number">$123.456</span>
+                                    <span class="income-item__btn income-item__btn--edit" title="edit">
+                                        <img src="./assets/images/edit.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                    <span class="income-item__btn income-item__btn--delete" title="delete">
+                                        <img src="./assets/images/delete.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                </li>
+                                <li class="income-item">
+                                    <span class="income-item__name">Salary</span>
+                                    <span class="income-item__number">$123.456</span>
+                                    <span class="income-item__btn income-item__btn--edit" title="edit">
+                                        <img src="./assets/images/edit.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                    <span class="income-item__btn income-item__btn--delete" title="delete">
+                                        <img src="./assets/images/delete.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                </li>
+                                <li class="income-item">
+                                    <span class="income-item__name">Salary</span>
+                                    <span class="income-item__number">$123.456</span>
+                                    <span class="income-item__btn income-item__btn--edit" title="edit">
+                                        <img src="./assets/images/edit.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                    <span class="income-item__btn income-item__btn--delete" title="delete">
+                                        <img src="./assets/images/delete.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                </li>
+                                <li class="income-item">
+                                    <span class="income-item__name">Salary</span>
+                                    <span class="income-item__number">$123.456</span>
+                                    <span class="income-item__btn income-item__btn--edit" title="edit">
+                                        <img src="./assets/images/edit.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                    <span class="income-item__btn income-item__btn--delete" title="delete">
+                                        <img src="./assets/images/delete.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                </li><li class="income-item">
+                                    <span class="income-item__name">Salary</span>
+                                    <span class="income-item__number">$123.456</span>
+                                    <span class="income-item__btn income-item__btn--edit" title="edit">
+                                        <img src="./assets/images/edit.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                    <span class="income-item__btn income-item__btn--delete" title="delete">
+                                        <img src="./assets/images/delete.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                </li>
+                                <li class="income-item">
+                                    <span class="income-item__name">Salary</span>
+                                    <span class="income-item__number">$123.456</span>
+                                    <span class="income-item__btn income-item__btn--edit" title="edit">
+                                        <img src="./assets/images/edit.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                    <span class="income-item__btn income-item__btn--delete" title="delete">
+                                        <img src="./assets/images/delete.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                </li>
+                                <li class="income-item">
+                                    <span class="income-item__name">Salary</span>
+                                    <span class="income-item__number">$123.456</span>
+                                    <span class="income-item__btn income-item__btn--edit" title="edit">
+                                        <img src="./assets/images/edit.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                    <span class="income-item__btn income-item__btn--delete" title="delete">
+                                        <img src="./assets/images/delete.png" alt="" class="income-item__btn-img">
+                                    </span>
+                                </li>
+                            </ul>
+                            
+                        </div>
                     </div>
                 </div>
 
@@ -77,9 +194,99 @@
                 <div class="sub-dashboard expenses">
                     <label class="sub-dashboard__overlay" for="expenses"></label>
                     <div class="sub-dashboard-body">
-                        <p class="sub-dashboard__text">
-                            Expenses detail
-                        </p>
+                        <div class="sub-dashboard-container transaction-container">
+                            <label class="sub-dashboard-close-btn" for="expenses">
+                                <img src="./assets/images/close.png" alt="" class="sub-dashboard-close-btn__img">
+                            </label>
+                            <div class="sub-dashboard-header">
+                                <h6 class="sub-dashboard__heading">Transactions</h6>
+                                <label  for="transaction-checkbox" class="sub-dashboard__add-btn sub-dashboard__add-btn--active">
+                                    <img src="./assets/images/plus-sign.png" alt="" class="sub-dashboard__add-btn-img">
+                                </label>
+                            </div>
+                            <input type="checkbox" name="" id="transaction-checkbox" class="transaction-checkbox" hidden>
+                            <form class="sub-dashboard-form transaction-form transaction-form--add ">
+                                <div class="sub-dashboard-form-group">
+                                    <input type="number" class="sub-dashboard-form__input sub-dashboard-form__input--shorter" placeholder="$2.4">
+                                    <input type="text" class="sub-dashboard-form__input" name="" id="" placeholder="Description">
+                                </div>
+                                <button type="submit" class="sub-dashboard-form__btn transaction-form__btn transaction-form__btn--add">Add</button>
+                                <button type="submit" class="sub-dashboard-form__btn transaction-form__btn transaction-form__btn--update">Update</button>
+                            </form>
+                            <div class="sub-dashboard-filter">
+                                <span class="sub-dashboard-filter__item">
+                                    From Newest
+                                </span>
+                                <span class="sub-dashboard-filter__item">
+                                    From Oldest
+                                </span>
+                                <select name="" id="" class="sub-dashboard-filter__item sub-dashboard-filter__item--active sub-dashboard-filter-select">
+                                    <option value="" class="sub-dashboard-filter-select__option">Today</option>
+                                    <option value="" class="sub-dashboard-filter-select__option">19 Aug, 2022</option>
+                                    <option value="" class="sub-dashboard-filter-select__option">18 Aug, 2022</option>
+                                    <option value="" class="sub-dashboard-filter-select__option">18 Aug, 2022</option>
+                                    <option value="" class="sub-dashboard-filter-select__option">18 Aug, 2022</option>
+                                </select>
+                            </div>
+                            <ul class="transaction-list">
+                                <li class="transaction-item">
+                                    <div class="transaction-item__header">
+                                        <span class="transaction-item__name">Shopping</span>
+                                        <span class="transaction-item__number">$12.111</span>
+                                    </div>
+                                    <div class="transaction-item__footer">
+                                        <span class="transaction-item__dater">19 Aug, 2022</span>
+                                        <span class="transaction-item__timer">10:10 AM</span>
+                                        <div class="transaction-item-control">
+                                            <img src="./assets/images/edit.png" alt="" class="transaction-item-control__btn-img">
+                                            <img src="./assets/images/delete.png" alt="" class="transaction-item-control__btn-img">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="transaction-item">
+                                    <div class="transaction-item__header">
+                                        <span class="transaction-item__name">Shopping</span>
+                                        <span class="transaction-item__number">$12.111</span>
+                                    </div>
+                                    <div class="transaction-item__footer">
+                                        <span class="transaction-item__dater">19 Aug, 2022</span>
+                                        <span class="transaction-item__timer">10:10 AM</span>
+                                        <div class="transaction-item-control">
+                                            <img src="./assets/images/edit.png" alt="" class="transaction-item-control__btn-img">
+                                            <img src="./assets/images/delete.png" alt="" class="transaction-item-control__btn-img">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="transaction-item">
+                                    <div class="transaction-item__header">
+                                        <span class="transaction-item__name">Shopping</span>
+                                        <span class="transaction-item__number">$12.111</span>
+                                    </div>
+                                    <div class="transaction-item__footer">
+                                        <span class="transaction-item__dater">19 Aug, 2022</span>
+                                        <span class="transaction-item__timer">10:10 AM</span>
+                                        <div class="transaction-item-control">
+                                            <img src="./assets/images/edit.png" alt="" class="transaction-item-control__btn-img">
+                                            <img src="./assets/images/delete.png" alt="" class="transaction-item-control__btn-img">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="transaction-item" >
+                                    <div class="transaction-item__header">
+                                        <span class="transaction-item__name">Shopping</span>
+                                        <span class="transaction-item__number">$12.111</span>
+                                    </div>
+                                    <div class="transaction-item__footer">
+                                        <span class="transaction-item__dater">19 Aug, 2022</span>
+                                        <span class="transaction-item__timer">10:10 AM</span>
+                                        <div class="transaction-item-control">
+                                            <img src="./assets/images/edit.png" alt="" class="transaction-item-control__btn-img">
+                                            <img src="./assets/images/delete.png" alt="" class="transaction-item-control__btn-img">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

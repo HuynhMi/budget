@@ -102,7 +102,7 @@
 .dashboard-control__btn {
     flex: 1;
     margin: 0 10px;
-    padding: 10px 0px;
+    padding: 7px 0px;
 
     font-size: 1.8rem;
     color: var(--white);
@@ -146,8 +146,8 @@
     left: 0;
 }
 
-.sub-dashboard.income,
-.sub-dashboard.expenses {
+.sub-dashboard.expenses,
+.sub-dashboard.income {
     display: none;
 }
 
@@ -182,16 +182,13 @@
     border: 1px solid #dfdfdf;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    padding: 15px 15px;
+    padding: 15px 20px;
 
     transform: translateY(0%);
     animation: slide linear 250ms;
 
 }
 
-.sub-dashboard__text {
-    font-size: 1.8rem;
-}
 
 @keyframes slide {
     from {
@@ -199,4 +196,355 @@
     } to {
         transform: translateY(0%);
     }
+}
+
+.sub-dashboard-container {
+    position: relative;
+}
+
+/* Income */
+.income-container {
+
+    
+}
+
+
+.income-list,
+.transaction-list {
+    list-style: none;
+    max-height: 30vh;
+    overflow-y: auto;
+}
+
+.income-list::-webkit-scrollbar,
+.transaction-list::-webkit-scrollbar {
+    appearance: none;
+    --width: 7px;
+    width: var(--width);
+    background-color: var(--white);
+    border-radius: var(--width);
+}
+
+.income-list::-webkit-scrollbar {
+    box-shadow: inset 0px 0px 2px 0px rgba(5, 226, 5, 0.5);
+}
+
+.transaction-list::-webkit-scrollbar {
+    box-shadow: inset 0px 0px 2px 0px rgba(248, 166, 128, 0.5);
+
+}
+
+.income-list::-webkit-scrollbar-thumb,
+.transaction-list::-webkit-scrollbar-thumb {
+    appearance: none;
+    width: 7px;
+    border-radius: 7px;
+}
+
+.income-list::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+}
+
+.transaction-list::-webkit-scrollbar-thumb {
+    background-color: var(--second);
+}
+.income-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.income-item:hover .income-item__btn {
+    display: block;
+}
+
+.income-item:hover {
+    background-color: var(--primary-hover);
+}
+
+.income-item__name {
+    font-size: 1.8rem;
+}
+
+.income-item__number {
+    font-size: 2rem;
+    margin-left: auto;
+}
+
+.income-item__btn {
+    --height: 13px;
+    height: var(--height);
+    width: var(--height);
+    margin-left: 13px;
+    display: none;
+    animation: pullLeft linear 250ms;
+    cursor: pointer;
+}
+
+.income-item__btn--edit {
+    --height: 17px;
+}
+
+@keyframes pullLeft {
+    from {
+        opacity: 0;
+        margin-left: 0;
+    }
+    to {
+        opacity: 1;
+        margin-left: 13px;
+    }
+}
+
+.income-item__btn-img {
+    width: 100%;
+    height: 100%;
+}
+
+.sub-dashboard__heading {
+    font-size: 2rem;
+    margin: 10px 0px 10px;
+}
+
+.sub-dashboard-form {
+    margin-bottom: 15px;
+}
+
+.sub-dashboard-form-group {
+    display: flex;
+    margin: 0px 0px 10px;
+}
+
+.income-form.income-form--update .income-form__btn--update,
+.transaction-form.transaction-form--update .transaction-form__btn--update
+{
+    display: block;
+}
+
+.income-form.income-form--add .income-form__btn--add {
+    display: block;
+}
+
+.transaction-form.transaction-form--add .transaction-form__btn--add
+{
+    display: block;
+}
+
+
+/* .income-form__input, */
+.sub-dashboard-form__input {
+    --height: 40px;
+    font-size: 1.8rem;
+    height: var(--height);
+    line-height: var(--height);
+    padding: 0 15px;
+    width: 100%;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: unset;
+}
+
+.sub-dashboard-form__input--shorter {
+    max-width: 130px;
+    margin-right: 10px;
+}
+
+/* .income-form__btn, */
+.sub-dashboard-form__btn {
+    font-size: 1.8rem;
+
+    color: var(--white);
+    
+    border-radius: 5px;
+    width: 100%;
+    padding: 7px 0px;
+
+    cursor: pointer;
+    display: none;
+}
+
+.sub-dashboard-form__btn.transaction-form__btn {
+    background-color: var(--second);
+    border: 1px solid var(--second-border);
+}
+
+.sub-dashboard-form__btn.income-form__btn {
+    background-color: var(--primary);
+    
+    border: 1px solid var(--primary-border);
+}
+
+
+
+.sub-dashboard-form__btn:hover {
+    opacity: 0.9;
+}
+
+
+.sub-dashboard-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px 20px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.sub-dashboard-filter-group {
+    display: flex;
+    align-items: center;
+}
+
+.sub-dashboard-filter__checkbox {
+    cursor: pointer;
+}
+
+.sub-dashboard-filter__checkbox:checked ~ .sub-dashboard-filter__label {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.sub-dashboard-filter__label,
+.sub-dashboard-filter__item,
+.sub-dashboard-filter-select,
+.sub-dashboard-filter-select__option {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 5px;
+    cursor: pointer;
+}   
+
+.sub-dashboard-filter__item {
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding: 2px 5px;
+}
+
+.sub-dashboard-filter__item--active {
+    border: 2px solid var(--second);
+    color: var(--second);
+}
+
+/* Expenses */
+.transaction-container {
+
+}
+
+.transaction-item {
+    padding: 10px 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.transaction-item:hover .transaction-item-control {
+    display: block;
+}
+
+.transaction-item:hover {
+    background-color: var(--second-hover);
+    
+}
+
+.transaction-item__header,
+.transaction-item__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transaction-item__name {
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.transaction-item__number {
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.transaction-item__footer {
+    margin-top: 7px;
+
+}
+
+.transaction-item__dater,
+.transaction-item__timer {
+    font-size: 1.4rem;
+    color: #6d6d6d;
+}
+
+.transaction-item__timer {
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+.transaction-item-control {
+    animation: fadeIn linear 200ms;
+    display: none;
+}
+
+.transaction-item-control__btn-img {
+    --height: 13px;
+    width: var(--height);
+    height: var(--height);
+    margin: 0 7px;
+    cursor: pointer;
+}
+
+
+
+
+.sub-dashboard-header {
+    display: flex;
+    align-items: center;
+}
+
+.sub-dashboard-form {
+    display: none;
+}
+
+.income-checkbox:checked ~ .income-form,
+.transaction-checkbox:checked ~ .transaction-form {
+    display: block;
+}
+
+.sub-dashboard__add-btn {
+    --height: 20px;
+    height: var(--height);
+    width: var(--height);
+    display: block;
+    margin: 2px 0px 0px 5px;
+    cursor: pointer;
+}
+
+.sub-dashboard__add-btn--active {
+    opacity: 0.2;
+    cursor: default;
+}
+
+.sub-dashboard__add-btn-img {
+    width: 100%;
+    height: 100%;
+}
+
+.sub-dashboard-close-btn {
+    --height: 30px;
+    width: var(--height);
+    height: var(--height);
+
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    cursor: pointer;
+}
+
+.sub-dashboard-close-btn__img {
+    width: 100%;
+    height: 100%;
 }
