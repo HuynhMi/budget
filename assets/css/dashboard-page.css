@@ -27,6 +27,12 @@
     position: relative;
 }
 
+.dashboard-item__img {
+    --height: 25px;
+    width: var(--height);
+    height: var(--height);
+}
+
 .dashboard-item.separate {
     position: relative;
 }
@@ -43,6 +49,7 @@
 
 .dashboard__sub-heading {
     font-size: 2rem;
+    margin: 0px auto 0px 5px;
 }
 
 .dashboard-item--income .dashboard__sub-heading,
@@ -76,8 +83,14 @@
     flex-direction: column;
 }
 
+.dashboard-chart-header {
+    display: flex;
+    align-items: center;
+}
+
 .dashboard-chart__heading {
     font-size: 2rem;
+    margin-left: 5px;
 }
 
 .dashboard-chart-body {
