@@ -326,10 +326,23 @@
     margin-bottom: 15px;
 }
 
-.sub-dashboard-form-group {
+.sub-dashboard-form-wrap {
     display: flex;
-    margin: 0px 0px 10px;
+    margin: 10px -5px;
 }
+
+.sub-dashboard-form-group {
+    margin: 0 5px;
+}
+
+.sub-dashboard-form-group--col-half {
+    width: 50%;
+}
+
+.sub-dashboard-form-group--col-third {
+    width: 33.33333%;
+}
+
 
 .income-form.income-form--update .income-form__btn--update,
 .transaction-form.transaction-form--update .transaction-form__btn--update
@@ -361,10 +374,6 @@
     outline: unset;
 }
 
-.sub-dashboard-form__input--shorter {
-    max-width: 130px;
-    margin-right: 10px;
-}
 
 /* .income-form__btn, */
 .sub-dashboard-form__btn {
