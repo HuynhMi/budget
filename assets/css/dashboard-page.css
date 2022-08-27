@@ -98,6 +98,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 2rem;
+    min-height: 300px;
 }
 
 .dashboard-chart__circle {
@@ -110,13 +112,10 @@
 }
 
 .dashboard-control {
-    display: flex;
-    margin: auto -10px 0px -10px;
+    margin-top: auto;
 }
 
 .dashboard-control__btn {
-    flex: 1;
-    margin: 0 10px;
     padding: 7px 0px;
 
     font-size: 1.8rem;
@@ -127,6 +126,7 @@
     border: 1px solid;
     cursor: pointer;
     display: block;
+    width: 100%;
 }
 
 .dashboard-control__btn--income {
@@ -140,6 +140,11 @@
     border-color: var(--second-border);
 }
 
+.dashboard-control__btn--clear-all {
+    background-color: #6092af;
+    border-color: #56849e;
+    margin-top: 10px;
+}
 .dashboard-control__btn:hover {
     opacity: 0.8;
 }

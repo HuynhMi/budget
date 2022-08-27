@@ -18,7 +18,11 @@ class STORE {
 class INCOME {
     static config = new STORE('INCOME_KEY');
 
-    static incomes = this.config.getConfig();
+    static incomes;
+
+    static loadConfig() {
+        this.incomes = this.config.getConfig();
+    }
 
     static filterValue = $('input[name="filter-income-type"]:checked').value;
 
@@ -94,6 +98,7 @@ class INCOME {
     }
 
     static display() {
+        this.loadConfig();
         this.addToList();
         this.displayTotal();
     }
@@ -110,7 +115,11 @@ class EXPENSE {
 
     static config = new STORE('EXPENSE_KEY');
 
-    static expenses = this.config.getConfig();
+    static expenses;
+
+    static loadConfig() {
+        this.expenses = this.config.getConfig();
+    }
 
     static filterValue = $('#transaction-filter').value;
 
@@ -203,6 +212,7 @@ class EXPENSE {
     }
 
     static display() {
+        this.loadConfig();
         this.addToList();
         this.displayTotal();
     }
@@ -342,6 +352,21 @@ class APP {
         })
     }
 
+    static handleEvent() {
+        const _this = this;
+        $('.welcome-btn').onclick = function() {
+            $('.app').classList.remove('app--welcome');
+            $('.app').classList.add('app--dashboard');
+        }
+
+        $('.dashboard-control__btn--clear-all').onclick = function() {
+            localStorage.removeItem(INCOME.config.name);
+            localStorage.removeItem(EXPENSE.config.name);
+            _this.display();
+            _this.handleDrawChart();
+        }
+    }
+
     static drawPieSlice(ctx, centerX, centerY, radius, startAngle, endAngle, color, info) {
         ctx.beginPath();
         ctx.fillStyle = color;
@@ -362,11 +387,18 @@ class APP {
     }
 
     static handleDrawChart() {
-        const canvas = $('#dashboard-canvas');
+        const total = INCOME.getTotal();
+        if(total == 0) {
+            $('.dashboard-chart-body').innerHTML = 'No chart';
+            return;
+        } else {
+            $('.dashboard-chart-body').innerHTML = '';
+        }
+
+        const canvas = document.createElement('canvas');
         canvas.height = 300;
         canvas.width = 300;
         const ctx = canvas.getContext('2d');
-        const total = INCOME.getTotal();
         
         let expensePercent = EXPENSE.getTotal() / total;
         const expense_angle_start = 0;
@@ -380,12 +412,14 @@ class APP {
         const remainInfo = {'name': 'Remain', 'percent': Number(remainPercent/0.01).toFixed(0)}
         this.drawPieSlice(ctx, canvas.width/2, canvas.height/2, canvas.height/2, remain_angle_start, remain_angle_end, '#000', remainInfo);
 
+        $('.dashboard-chart-body').appendChild(canvas);
     }
 
     static start() {
         this.display();
         this.handleIncomeEvent();
         this.handleExpenseEvent();
+        this.handleEvent();
         this.handleDrawChart();
     }
 
@@ -393,7 +427,3 @@ class APP {
 
 APP.start();
 
-$('.welcome-btn').onclick = function() {
-    $('.app').classList.remove('app--welcome');
-    $('.app').classList.add('app--dashboard');
-}
