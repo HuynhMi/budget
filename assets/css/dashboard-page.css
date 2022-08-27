@@ -96,6 +96,8 @@
 .dashboard-chart-body {
     flex: 1;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dashboard-chart__circle {
@@ -109,7 +111,7 @@
 
 .dashboard-control {
     display: flex;
-    margin-top: auto;
+    margin: auto -10px 0px -10px;
 }
 
 .dashboard-control__btn {
@@ -143,11 +145,11 @@
 }
 
 /* Income */
-.income-checkbox:checked ~ .income {
+.income-wrap-checkbox:checked ~ .income {
     display: block;
 }
 
-.expenses-checkbox:checked ~ .expenses {
+.expenses-wrap-checkbox:checked ~ .expenses {
     display: block;
 }
 
@@ -322,46 +324,33 @@
     margin: 10px 0px 10px;
 }
 
-.sub-dashboard-form {
-    margin-bottom: 15px;
+.form {
+    display: none;
+    flex-wrap: wrap;
+    margin: 0px -5px 15px -5px;
 }
 
-.sub-dashboard-form-wrap {
+.form.open {
     display: flex;
-    margin: 10px -5px;
 }
 
-.sub-dashboard-form-group {
-    margin: 0 5px;
+.form-group {
+    padding: 0px 5px;
 }
 
-.sub-dashboard-form-group--col-half {
-    width: 50%;
-}
-
-.sub-dashboard-form-group--col-third {
+.form-group.col-4 {
     width: 33.33333%;
 }
 
-
-.income-form.income-form--update .income-form__btn--update,
-.transaction-form.transaction-form--update .transaction-form__btn--update
-{
-    display: block;
+.form-group.col-12 {
+    width: 100%;
 }
 
-.income-form.income-form--add .income-form__btn--add {
-    display: block;
+.form-group.col-6 {
+    width: 50%;
 }
 
-.transaction-form.transaction-form--add .transaction-form__btn--add
-{
-    display: block;
-}
-
-
-/* .income-form__input, */
-.sub-dashboard-form__input {
+.form__input {
     --height: 40px;
     font-size: 1.8rem;
     height: var(--height);
@@ -374,35 +363,38 @@
     outline: unset;
 }
 
-
-/* .income-form__btn, */
-.sub-dashboard-form__btn {
+.form__btn {
     font-size: 1.8rem;
 
     color: var(--white);
     
     border-radius: 5px;
-    width: 100%;
     padding: 7px 0px;
+    margin-top: 10px;
+    width: 100%;
 
     cursor: pointer;
-    display: none;
 }
 
-.sub-dashboard-form__btn.transaction-form__btn {
+.form__btn--cancel {
+    background-color: var(--white);
+    border:2px solid #f03434;
+    color: var(--text-color);
+}
+
+.form.transaction-form .form__btn--submit {
     background-color: var(--second);
-    border: 1px solid var(--second-border);
+    border: 2px solid var(--second-border);
 }
 
-.sub-dashboard-form__btn.income-form__btn {
+.form.income-form .form__btn--submit {
     background-color: var(--primary);
-    
-    border: 1px solid var(--primary-border);
+    border: 2px solid var(--primary-border);
 }
 
 
 
-.sub-dashboard-form__btn:hover {
+.form__btn:hover {
     opacity: 0.9;
 }
 
@@ -443,14 +435,11 @@
 .sub-dashboard-filter__item {
     border-radius: 3px;
     outline: none;
-    border: 1px solid #ccc;
+    border: 2px solid var(--second);
     padding: 2px 5px;
+    width: 100%;
 }
 
-.sub-dashboard-filter__item--active {
-    border: 2px solid var(--second);
-    color: var(--second);
-}
 
 /* Expenses */
 .transaction-container {
@@ -495,16 +484,11 @@
 
 }
 
-.transaction-item__dater,
 .transaction-item__timer {
     font-size: 1.4rem;
     color: #6d6d6d;
 }
 
-.transaction-item__timer {
-    margin-right: auto;
-    margin-left: 20px;
-}
 
 .transaction-item-control {
     animation: fadeIn linear 200ms;
@@ -519,6 +503,9 @@
     cursor: pointer;
 }
 
+.transaction-item__btn-edit {
+    --height: 15px;
+}
 
 
 
@@ -527,16 +514,7 @@
     align-items: center;
 }
 
-.sub-dashboard-form {
-    display: none;
-}
-
-.income-checkbox:checked ~ .income-form,
-.transaction-checkbox:checked ~ .transaction-form {
-    display: block;
-}
-
-.sub-dashboard__add-btn {
+.sub-dashboard__btn {
     --height: 20px;
     height: var(--height);
     width: var(--height);
@@ -545,15 +523,16 @@
     cursor: pointer;
 }
 
-.sub-dashboard__add-btn--active {
-    opacity: 0.2;
-    cursor: default;
+.sub-dashboard__btn.hide {
+    display: none;
 }
 
-.sub-dashboard__add-btn-img {
+
+.sub-dashboard__btn-img {
     width: 100%;
     height: 100%;
 }
+
 
 .sub-dashboard-close-btn {
     --height: 30px;

@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="./assets/css/dashboard-page.css">
     </head>
     <body>
-        <div class="app app--dashboard">
+        <div class="app app--welcome">
             <div class="page welcome-wrap">
                 <div class="welcome">
                     <div class="welcome__image">
@@ -55,20 +55,20 @@
                         <p class="dashboard-chart__heading">Statistics</p>
                     </div>
                     <div class="dashboard-chart-body">
-                        <div class="dashboard-chart__circle"></div>
+                        <canvas id="dashboard-canvas"></canvas>
                     </div>
                 </div>
                 <div class="dashboard-control">
                     <label for="income" class="dashboard-control__btn dashboard-control__btn--income">
                         Income detail
                     </label>
-                    <label for="expenses" class="dashboard-control__btn dashboard-control__btn--expenses">
+                    <label for="expenses-wrap" class="dashboard-control__btn dashboard-control__btn--expenses">
                         Transactions
                     </label>
                 </div>
 
                 <!-- Income detail -->
-                <input type="checkbox" name="" id="income" class="income-checkbox" hidden>
+                <input type="checkbox" name="" id="income" class="income-wrap-checkbox" hidden>
                 <div class="sub-dashboard income">
                     <label class="sub-dashboard__overlay" for="income"></label>
                     <div class="sub-dashboard-body">
@@ -78,46 +78,49 @@
                             </label>
                             <div class="sub-dashboard-header">
                                 <h6 class="sub-dashboard__heading">Income</h6>
-                                <label  for="income-checkbox" class="sub-dashboard__add-btn sub-dashboard__add-btn--active">
-                                    <img src="./assets/images/plus.png" alt="" class="sub-dashboard__add-btn-img">
-                                </label>
-                            </div>
-                            <input type="checkbox" name="" id="income-checkbox" class="income-checkbox" hidden>
-                            <form class="sub-dashboard-form income-form income-form--add">
-                                <div class="sub-dashboard-form-wrap">
-                                    <div class="sub-dashboard-form-group sub-dashboard-form-group--col-third">
-                                        <input type="number" name="amount" class="sub-dashboard-form__input" placeholder="$2.4">
-                                    </div>
-                                    <div class="sub-dashboard-form-group sub-dashboard-form-group--col-third">
-                                        <input type="text" name="name" class="sub-dashboard-form__input" id="" placeholder="Name">
-                                    </div>
-                                    <div class="sub-dashboard-form-group sub-dashboard-form-group--col-third">
-                                        <!-- <input type="text" name="type" class="sub-dashboard-form__input" id="" placeholder="Type"> -->
-                                        <select name="type" id="" class="sub-dashboard-form__input">
-                                            <option value="fixed">Fixed</option>
-                                            <option value="variable">Variable</option>
-                                            <option value="occasional">Occasional</option>
-                                        </select>
-                                    </div>
+                                <div class="sub-dashboard__btn" id="btn-open-income-form">
+                                    <img src="./assets/images/plus.png" alt="" class="sub-dashboard__btn-img sub-dashboard__btn-open">
                                 </div>
-                                <button type="submit" class="sub-dashboard-form__btn income-form__btn income-form__btn--add">Add</button>
-                                <button type="submit" class="sub-dashboard-form__btn income-form__btn income-form__btn--update">Update</button>
+                            </div>
+                            <form class="form income-form" name="form-create-new">
+                                <div class="form-group col-4" hidden>
+                                    <input type="text" name="id" class="form__input" placeholder="New" value="New" readonly>
+                                </div>
+                                <div class="form-group col-4">
+                                    <input type="number" name="amount" class="form__input" placeholder="$2.4">
+                                </div>
+                                <div class="form-group col-4">
+                                    <input type="text" name="name" class="form__input" id="" placeholder="Name">
+                                </div>
+                                <div class="form-group col-4">
+                                    <select name="type" id="" class="form__input">
+                                        <option value="fixed">Fixed</option>
+                                        <option value="variable">Variable</option>
+                                        <option value="occasional">Occasional</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-6"> 
+                                    <button type="submit" class="form__btn form__btn--submit" id="btn-submit-income-form">Add</button>
+                                </div>
+                                <div class="form-group col-6">
+                                    <button type="submit" class="form__btn form__btn--cancel" id="btn-close-income-form">Cancel</button>
+                                </div>
                             </form>
                             <div class="sub-dashboard-filter income-filter">
                                 <div class="sub-dashboard-filter-group">
-                                    <input type="radio" name="filter-income-type" id="" checked class="sub-dashboard-filter__checkbox">
+                                    <input type="radio" name="filter-income-type" id="" checked  class="sub-dashboard-filter__checkbox" value="all">
                                     <label for="" class="sub-dashboard-filter__label">All</label>
                                 </div>
                                 <div class="sub-dashboard-filter-group">
-                                    <input type="radio" name="filter-income-type" id="" class="sub-dashboard-filter__checkbox">
+                                    <input type="radio" name="filter-income-type" id=" "   class="sub-dashboard-filter__checkbox" value="fixed">
                                     <label for="" class="sub-dashboard-filter__label">Fixed</label>
                                 </div>
                                 <div class="sub-dashboard-filter-group">
-                                    <input type="radio" name="filter-income-type" id="" class="sub-dashboard-filter__checkbox">
+                                    <input type="radio" name="filter-income-type" id=""  class="sub-dashboard-filter__checkbox" value="variable">
                                     <label for="" class="sub-dashboard-filter__label">Variable</label>
                                 </div>
                                 <div class="sub-dashboard-filter-group">
-                                    <input type="radio" name="filter-income-type" id="" class="sub-dashboard-filter__checkbox">
+                                    <input type="radio" name="filter-income-type" id=""  class="sub-dashboard-filter__checkbox" value="occasional">
                                     <label for="" class="sub-dashboard-filter__label">Occasional</label>
                                 </div>
                             </div>
@@ -139,46 +142,41 @@
                 </div>
 
                 <!-- Expenses detail-->
-                <input type="checkbox" name="" id="expenses" class="expenses-checkbox" hidden>
+                <input type="checkbox" name="" id="expenses-wrap" class="expenses-wrap-checkbox" hidden>
                 <div class="sub-dashboard expenses">
-                    <label class="sub-dashboard__overlay" for="expenses"></label>
+                    <label class="sub-dashboard__overlay" for="expenses-wrap"></label>
                     <div class="sub-dashboard-body">
                         <div class="sub-dashboard-container transaction-container">
-                            <label class="sub-dashboard-close-btn" for="expenses">
+                            <label class="sub-dashboard-close-btn" for="expenses-wrap">
                                 <img src="./assets/images/close.png" alt="" class="sub-dashboard-close-btn__img">
                             </label>
                             <div class="sub-dashboard-header">
                                 <h6 class="sub-dashboard__heading">Transactions</h6>
-                                <label  for="transaction-checkbox" class="sub-dashboard__add-btn sub-dashboard__add-btn--active">
-                                    <img src="./assets/images/plus-sign.png" alt="" class="sub-dashboard__add-btn-img">
-                                </label>
-                            </div>
-                            <input type="checkbox" name="" id="transaction-checkbox" class="transaction-checkbox" hidden>
-                            <form class="sub-dashboard-form transaction-form transaction-form--add ">
-                                <div class="sub-dashboard-form-wrap">
-                                    <div class="sub-dashboard-form-group sub-dashboard-form-group--col-half">
-                                        <input type="number" name="amount" class="sub-dashboard-form__input" placeholder="$2.4">
-                                    </div>
-                                    <div class="sub-dashboard-form-group sub-dashboard-form-group--col-half">
-                                        <input type="text" name="name"  class="sub-dashboard-form__input" name="" id="" placeholder="Name">
-                                    </div>
+                                <div class="sub-dashboard__btn" id="btn-open-transaction-form">
+                                    <img src="./assets/images/plus-sign.png" alt="" class="sub-dashboard__btn-img sub-dashboard__btn-open">
                                 </div>
-                                <button type="submit" class="sub-dashboard-form__btn transaction-form__btn transaction-form__btn--add">Add</button>
-                                <button type="submit" class="sub-dashboard-form__btn transaction-form__btn transaction-form__btn--update">Update</button>
+                            </div>
+                            <form class="form transaction-form">
+                                <div class="form-group col-6" hidden>
+                                    <input type="text" name="id" class="form__input" placeholder="New" value="New" readonly>
+                                </div>
+                                <div class="form-group col-6">
+                                    <input type="number" name="amount" class="form__input" placeholder="$2.4">
+                                </div>
+                                <div class="form-group col-6">
+                                    <input type="text" name="name"  class="form__input" name="" id="" placeholder="Name">
+                                </div>
+                                <div class="form-group col-6">
+                                    <button type="submit" class="form__btn form__btn--submit" id="btn-submit-transaction-form">Add</button>
+                                </div>
+                                <div class="form-group col-6">
+                                    <button type="submit" class="form__btn form__btn--cancel" id="btn-close-transaction-form">Cancel</button>
+                                </div>
                             </form>
                             <div class="sub-dashboard-filter">
-                                <span class="sub-dashboard-filter__item">
-                                    From Newest
-                                </span>
-                                <span class="sub-dashboard-filter__item">
-                                    From Oldest
-                                </span>
-                                <select name="" id="" class="sub-dashboard-filter__item sub-dashboard-filter__item--active sub-dashboard-filter-select">
-                                    <option value="" class="sub-dashboard-filter-select__option">Today</option>
-                                    <option value="" class="sub-dashboard-filter-select__option">19 Aug, 2022</option>
-                                    <option value="" class="sub-dashboard-filter-select__option">18 Aug, 2022</option>
-                                    <option value="" class="sub-dashboard-filter-select__option">18 Aug, 2022</option>
-                                    <option value="" class="sub-dashboard-filter-select__option">18 Aug, 2022</option>
+                                <select name="" class="sub-dashboard-filter__item" id="transaction-filter">
+                                    <option value="newest" class="sub-dashboard-filter-select__option">Newest</option>
+                                    <option value="oldest" class="sub-dashboard-filter-select__option">Oldest</option>
                                 </select>
                             </div>
                             <ul class="transaction-list">

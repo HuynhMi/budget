@@ -2,7 +2,7 @@
     --primary: #5ECC6B;
     --primary-hover: rgba(94, 204, 107, 0.3);
     --primary-border: #4bb157;
-    --second: #f8a680;
+    --second: #f89263;
     --second-border: #c27a58;
     --second-hover : #f8a6802f;
     --text-color: #333;
@@ -54,6 +54,10 @@ body {
 }
 
 @media (max-width: 740px) {
+    .app {
+        margin: 0 auto;
+    }
+
     .page {
         border-radius: unset;
         min-height: 100vh;
